@@ -5,6 +5,7 @@ AppState appReducer(AppState state, dynamic action) {
   if (action is IncrementCounter) {
     return state.copyWith(
       counter: state.counter + 1,
+      counterX: state.counterX * 2,
     );
   } else if (action is DecrementCounter) {
     return state.copyWith(

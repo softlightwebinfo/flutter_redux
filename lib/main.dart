@@ -32,18 +32,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[
-          StoreConnector<AppState, int>(
-            converter: (store) => store.state.counter,
-            builder: (BuildContext context, counter) {
-              return Text(
-                counter.toString(),
-                style: Theme.of(context).textTheme.display1,
-              );
-            },
-          ),
-        ],
+        title: StoreConnector<AppState, int>(
+          converter: (store) => store.state.counterX,
+          builder: (BuildContext context, counterX) {
+            return Text("$title - $counterX");
+          },
+        ),
+        centerTitle: false,
       ),
       body: Center(
         child: Column(
